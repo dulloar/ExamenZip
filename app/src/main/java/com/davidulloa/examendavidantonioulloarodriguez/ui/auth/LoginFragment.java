@@ -28,14 +28,20 @@ import java.lang.annotation.Annotation;
 
 import javax.inject.Inject;
 
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.support.HasSupportFragmentInjector;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link LoginFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LoginFragment extends Fragment implements Injectable {
+public class LoginFragment extends Fragment implements Injectable, HasSupportFragmentInjector {
 
+    @Inject
+    DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
     @Inject
     ViewModelProvider.Factory viewModelFactory;
 
@@ -116,5 +122,10 @@ public class LoginFragment extends Fragment implements Injectable {
         super.onActivityCreated(savedInstanceState);
 
         authViewModel = ViewModelProviders.of(this,viewModelFactory).get(AuthViewModel.class);
+    }
+
+    @Override
+    public AndroidInjector<Fragment> supportFragmentInjector() {
+        return dispatchingAndroidInjector;
     }
 }

@@ -23,13 +23,19 @@ import com.davidulloa.examendavidantonioulloarodriguez.util.AutoClearedValue;
 
 import javax.inject.Inject;
 
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.support.HasSupportFragmentInjector;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link RegisterFragmentFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RegisterFragmentFragment extends Fragment {
+public class RegisterFragmentFragment extends Fragment implements HasSupportFragmentInjector {
 
+    @Inject
+    DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
     @Inject
     ViewModelProvider.Factory viewModelFactory;
 
@@ -108,5 +114,10 @@ public class RegisterFragmentFragment extends Fragment {
 
         authViewModel = ViewModelProviders.of(this,viewModelFactory).get(AuthViewModel.class);
 
+    }
+
+    @Override
+    public AndroidInjector<Fragment> supportFragmentInjector() {
+        return dispatchingAndroidInjector;
     }
 }

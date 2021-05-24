@@ -8,6 +8,6 @@ import dagger.android.ContributesAndroidInjector;
 
 @Module
 public abstract class EmployeActivityModule {
-    @ContributesAndroidInjector(modules = FragmentBuildersModule.class)
+    @ContributesAndroidInjector(modules = FragmentBuildersEmployeeModule.class)
     abstract EmployeActivity contributeEmployeeActivity();
 }

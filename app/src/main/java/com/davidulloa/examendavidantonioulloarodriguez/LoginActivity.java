@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.davidulloa.examendavidantonioulloarodriguez.databinding.ActivityLoginBinding;
+import com.davidulloa.examendavidantonioulloarodriguez.ui.auth.LoginFragment;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -18,5 +19,7 @@ public class LoginActivity extends AppCompatActivity {
         if(binding == null ){
             binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         }
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.login_container,new LoginFragment());
     }
 }

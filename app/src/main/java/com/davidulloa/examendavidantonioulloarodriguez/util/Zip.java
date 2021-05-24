@@ -18,6 +18,7 @@ import java.util.zip.ZipInputStream;
 import javax.inject.Singleton;
 
 import dagger.Module;
+import okhttp3.ResponseBody;
 
 /**
  * Clase para comprimir o descomprimir archivos zip.
@@ -32,7 +33,7 @@ public class Zip {
 
 
 
-    public void unZip(String response){
+    public void unZip(ResponseBody body){
         //File strdir = MyApp.getContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
         //ile file = new File(Environment.getExternalStoragePublicDirectory((Environment.DIRECTORY_DOWNLOADS)),"employees_data.json.zip");
         File file = new File(MyApp.getContext().getExternalFilesDir(null) + File.separator +"employees_data.json.zip");
@@ -47,7 +48,7 @@ public class Zip {
         OutputStream outputStream = null;
         try{
             byte[] fileReader = new byte[4096];
-            long filesSize = response.contentLength();
+            long filesSize = body.contentLength();
 
             inputStream = new BufferedInputStream(body.byteStream(),4096);
             outputStream = new FileOutputStream(file);

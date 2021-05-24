@@ -26,18 +26,22 @@ import com.davidulloa.examendavidantonioulloarodriguez.util.AutoClearedValue;
 
 import javax.inject.Inject;
 
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.support.HasSupportFragmentInjector;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link RegisterEmployeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RegisterEmployeFragment extends Fragment implements Injectable {
+public class RegisterEmployeFragment extends Fragment implements Injectable, HasSupportFragmentInjector {
 
     @Inject
+    DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
+    @Inject
     ViewModelProvider.Factory viewModelFactory;
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
     androidx.databinding.DataBindingComponent dataBindingComponent = new FragmentDataBindingComponent(this);
 
@@ -112,5 +116,10 @@ public class RegisterEmployeFragment extends Fragment implements Injectable {
         super.onActivityCreated(savedInstanceState);
 
         employeViewModel = ViewModelProviders.of(this,viewModelFactory).get(EmployeViewModel.class);
+    }
+
+    @Override
+    public AndroidInjector<Fragment> supportFragmentInjector() {
+        return dispatchingAndroidInjector;
     }
 }

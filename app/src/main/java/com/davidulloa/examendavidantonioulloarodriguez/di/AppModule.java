@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.room.Room;
 
 import com.davidulloa.examendavidantonioulloarodriguez.api.ExamenService;
+import com.davidulloa.examendavidantonioulloarodriguez.api.FileService;
 import com.davidulloa.examendavidantonioulloarodriguez.data.local.RoomDatabseEmployes;
 import com.davidulloa.examendavidantonioulloarodriguez.data.local.dao.EmployeesDao;
 import com.davidulloa.examendavidantonioulloarodriguez.data.remote.ApiConstants;
@@ -40,14 +41,14 @@ public class AppModule {
 
     @Singleton
     @Provides
-    ExamenService provideFileService(){
+    FileService provideFileService(){
 
 
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(new LiveDataCallAdapterFactory())
                 .build()
-                .create(ExamenService.class);
+                .create(FileService.class);
     }
 
 

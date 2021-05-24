@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "326112801148",
+    "project_id": "autehticacion",
+    "storage_bucket": "autehticacion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326112801148:android:5feceefa2eaf450f5934f9",
+        "android_client_info": {
+          "package_name": "com.davidulloa.examendavidantonioulloarodriguez"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "326112801148-ncectmmorgmo0qcck0ud91m566497p2p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.davidulloa.examendavidantonioulloarodriguez",
+            "certificate_hash": "4544fc8e080c04a5d6eeffd2de34b9311b70d166"
+          }
+        },
+        {
+          "client_id": "326112801148-a71f84t1cim49v8sc7n6s0kksj19oqvu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjIR7K9LhMitsInDgHJsFa6qOhY8dsRMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "326112801148-a71f84t1cim49v8sc7n6s0kksj19oqvu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
